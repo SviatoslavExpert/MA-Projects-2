@@ -1,0 +1,36 @@
+package core.basesyntax;
+
+public class FootballMatch {
+    public int matchResult(int result1, int result2, int bet1, int bet2) {
+        int resultConclusion;
+        boolean situationTotalWin = result1 == bet1 && result2 == bet2;
+        boolean situationSimpleWin = ((result1 <= result2 && bet1 <= bet2) ||
+                (result1 > result2 && bet1 > bet2));
+        resultConclusion = situationTotalWin ? 2 : (situationSimpleWin ? 1 : 0);
+        return resultConclusion;
+    }
+}
+
+/*    String msg = num > 10 ? "Number is greater than 10"
+            : (num > 5 ? "Number is greater than 5" : "Number is less than equal to 5");*/
+
+/*        result1 == bet1 && result2 == bet2 ? resultConclusion = 2 :
+                result1 <= result2 && bet1 <= bet2 ? resultConclusion = 1 :
+                result1 > result2 && bet1 > bet2 ? resultConclusion = 1 : resultConclusion = 0;*/
+
+
+
+/**
+ * С помощью тернарного оператора написать функцию, которая будет считать исход матча.
+ * Метод будет принимать 4 параметра и возвращать целое число.
+ * 4 параметра метода - результат матча и то, какую ставку сделал пользователь.
+ *
+ * Пример: 0,2,1,1. Что значит: команды сыграли в счёт 0:2, а пользователь ставил 1:1.
+ *
+ * Задача:
+ *         если пользователь угадал 100% результат - возвращать 2
+ *         если угадал, что выиграла какая-либо команда
+ *             (пр. сыграли 1:2, а ставил 0:3 - то пользователь у выиграше)
+ *             то возвращать 1
+ *         если не угадал ничего - возвращать 0.
+ */
